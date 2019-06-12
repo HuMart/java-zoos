@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 @Service(value = "zooService")
-public class ZooserviceImpl implements ZooService
+public class ZooServiceImpl implements ZooService
 {
     @Autowired
     private ZooRepository zoorepos;
@@ -40,4 +40,5 @@ public class ZooserviceImpl implements ZooService
     {
         return zoorepos.getCountAnimalsInZoos();
     }
+
 }

@@ -1,5 +1,7 @@
 package com.lambdaschool.javazoos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +16,12 @@ public class Zoo
 
     private String zooname;
 
-    @OneToMany(mappedBy = "zooid")
+    @OneToMany(mappedBy = "zoo")
+    @JsonIgnoreProperties("zoos")
     private List<Telephone> telephones = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "animal")
+    @ManyToMany(mappedBy = "zoos")
+    @JsonIgnoreProperties("zoos")
     private List<Animal> animals = new ArrayList<>();
 
     public Zoo()

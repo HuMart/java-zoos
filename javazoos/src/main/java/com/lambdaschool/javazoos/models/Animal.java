@@ -1,5 +1,7 @@
 package com.lambdaschool.javazoos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class Animal
     @JoinTable(name = "zooanimals",
                joinColumns = {@JoinColumn(name = "animalid")},
                inverseJoinColumns = {@JoinColumn(name = "zooid")})
+    @JsonIgnoreProperties("animals")
     private List<Zoo> zoos = new ArrayList<>();
 
     public Animal()
