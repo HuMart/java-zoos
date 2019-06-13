@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-@Service(value = "studentService")
+@Service(value = "animalService")
 public class AnimalServiceImpl implements AnimalService
 {
     @Autowired

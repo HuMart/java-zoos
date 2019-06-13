@@ -10,11 +10,16 @@ import org.springframework.data.repository.CrudRepository;
 public interface ZooRepository extends CrudRepository<Zoo, Long>
 {
     Zoo findByZooid(long id);
-
+    //DELETE
+    //FROM zooanimals
+    //where zooid = :zooid
     @Modifying
     @Query(value = "DELETE FROM zooanimals WHERE zooid = :zooid", nativeQuery = true)
     void deleteZoosfromZooanimals (long zooid);
 
+    //DELETE
+    //FROM telephones
+    //WHERE zooid = :zooid
     @Modifying
     @Query(value = "DELETE FROM telephones WHERE zooid = :zooid", nativeQuery = true)
     void deletePhonesFromZoos (long zooid);
