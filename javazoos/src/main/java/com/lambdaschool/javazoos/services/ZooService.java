@@ -1,8 +1,6 @@
 package com.lambdaschool.javazoos.services;
 
-import com.lambdaschool.javazoos.models.Telephone;
 import com.lambdaschool.javazoos.models.Zoo;
-import com.lambdaschool.javazoos.views.CountAnimalsInZoos;
 
 import java.util.ArrayList;
 
@@ -10,7 +8,11 @@ public interface ZooService
 {
     ArrayList<Zoo> findAll();
 
+    Zoo findZooById(long id);
+
     void delete(long id);
 
-    ArrayList<CountAnimalsInZoos> getCountAnimalsInZoos();
+    Zoo save(Zoo zoo);
+
+    Zoo update(Zoo zoo, long id);
 }

@@ -5,7 +5,7 @@ DELETE
 FROM animal;
 
 DELETE
-FROM telephone;
+FROM telephones;
 
 DELETE
 FROM zoo;
@@ -17,7 +17,7 @@ INSERT INTO zoo (zooid, zooname)
                 (4, 'San Antonio Zoo'),
                 (5, 'Smithsonian National Zoo');
 
-INSERT INTO telephone(phoneid, phonetype, phonenumber, zooid)
+INSERT INTO telephones(telephoneid, phonetype, phonenumber, zooid)
          VALUES (1, 'main', '555-555-5555', 1),
                 (2, 'education', '555-555-1234', 1),
                 (3, 'membership', '555-555-4321', 1),

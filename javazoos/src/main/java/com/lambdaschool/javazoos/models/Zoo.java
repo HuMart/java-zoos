@@ -20,8 +20,11 @@ public class Zoo
     @JsonIgnoreProperties("zoos")
     private List<Telephone> telephones = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "zoos")
-    @JsonIgnoreProperties("zoos")
+    @ManyToMany
+    @JoinTable(name = "zooanimals",
+               joinColumns = {@JoinColumn(name="zooid")},
+               inverseJoinColumns = {@JoinColumn(name = "animalid")})
+    @JsonIgnoreProperties("zoo")
     private List<Animal> animals = new ArrayList<>();
 
     public Zoo()
@@ -38,10 +41,10 @@ public class Zoo
         return zooid;
     }
 
-    public void setZooid(long zooid)
-    {
-        this.zooid = zooid;
-    }
+//    public void setZooid(long zooid)
+//    {
+//        this.zooid = zooid;
+//    }
 
     public String getZooname()
     {
@@ -71,6 +74,12 @@ public class Zoo
     public void setAnimals(List<Animal> animals)
     {
         this.animals = animals;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Zoo{" + "zooid=" + zooid + ", zooname='" + zooname + '\'' + ", telephones=" + telephones + ", animals=" + animals + '}';
     }
 }
 

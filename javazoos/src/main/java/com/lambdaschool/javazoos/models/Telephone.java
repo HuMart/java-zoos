@@ -5,23 +5,29 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "telephone")
+@Table(name = "telephones")
 public class Telephone
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long phoneid;
+    private long telephoneid;
 
     private String phonetype;
     private String phonenumber;
 
     @ManyToOne
     @JoinColumn(name = "zooid")
-    @JsonIgnoreProperties("zooz")
+    @JsonIgnoreProperties("telephones")
     private Zoo zoo;
 
     public Telephone()
     {
+    }
+
+    public Telephone(String phonetype, String phonenumber)
+    {
+        this.phonetype = phonetype;
+        this.phonenumber = phonenumber;
     }
 
     public Telephone(String phonetype)
@@ -29,20 +35,14 @@ public class Telephone
         this.phonetype = phonetype;
     }
 
-    public Telephone(String phonetype, Zoo zoo)
+    public long getTelephoneid()
     {
-        this.phonetype = phonetype;
-        this.zoo = zoo;
+        return telephoneid;
     }
 
-    public long getPhoneid()
+    public void setTelephoneid(long telephoneid)
     {
-        return phoneid;
-    }
-
-    public void setPhoneid(long phoneid)
-    {
-        this.phoneid = phoneid;
+        this.telephoneid = telephoneid;
     }
 
     public String getPhonetype()
